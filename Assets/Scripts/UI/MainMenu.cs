@@ -13,10 +13,12 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGame()
     {
-
+#if UNITY_WEBGL
+        Debug.Log("Quit is not supported in WebGL build.");
+#else
         // Quit 
         Application.Quit();
-
+#endif
 
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
